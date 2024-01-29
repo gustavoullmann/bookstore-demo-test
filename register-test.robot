@@ -4,14 +4,12 @@ Documentation       Como cliente da loja virtual, desejo criar um
 ...                 pedidos e lista de desejos.
 
 Library             SeleniumLibrary
+Test Setup       Open Browser    url=http://localhost:5173/
 Test Teardown    Close Browser
-
 
 *** Test Cases ***
 Scenario: Success sign in as Natural Person
-    Given Open browser
-    And Go To    url=http://localhost:5173/
-    And Click link    Minha conta
+    Given Click link    Minha conta
     When Input text    id: register-name    Lorem ipsum
     And Input text    id: register-mail    loren@ipsum.com
     And Input Password    id: register-pass    foo123
@@ -24,9 +22,7 @@ Scenario: Success sign in as Natural Person
     And Page Should Contain Link    /my-wish-list
 
 Scenario: Success sign in as Juridical Person
-    Given Open browser
-    And Go To    url=http://localhost:5173/
-    And Click link    Minha conta
+    Given Click link    Minha conta
     When Input text    id: register-name    Lorem ipsum
     And Input text    id: register-mail    contato@ipsum.com
     And Input Password    id: register-pass    54321
