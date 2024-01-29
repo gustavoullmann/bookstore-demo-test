@@ -22,3 +22,18 @@ Scenario: Success sign in as Natural Person
     Then Wait Until Page Contains    Lorem ipsum, teu cadastro foi realizado com sucesso!
     And Page Should Contain Link    /my-orders
     And Page Should Contain Link    /my-wish-list
+
+Scenario: Success sign in as Juridical Person
+    Given Open browser
+    And Go To    url=http://localhost:5173/
+    And Click link    Minha conta
+    When Input text    id: register-name    Lorem ipsum
+    And Input text    id: register-mail    contato@ipsum.com
+    And Input Password    id: register-pass    54321
+    And Input Password    id: register-confirm-pass    54321
+    And Select From List By Label    id: register-user-type    Pessoa Jurídica
+    And Select Checkbox    id: terms-of-use
+    And Submit Form    name: register
+    Then Wait Until Page Contains    Lorem ipsum, teu cadastro foi realizado com sucesso!
+    And Page Should Contain Link    /my-orders
+    And Page Should Contain Link    /my-wish-list
